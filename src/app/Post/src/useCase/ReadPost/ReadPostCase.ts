@@ -6,7 +6,6 @@ export class ReadPostCase {
 
   async execute() {
     const allPosts = await this.postRepository.all();
-
     return allPosts;
   }
 }

@@ -1,7 +1,7 @@
 import { v4 as uuidv4 } from "uuid";
 
 export class Post {
-  public readonly id: string;
+  public readonly id?: string;
   public title: string;
   public detail: string;
   public description: string;

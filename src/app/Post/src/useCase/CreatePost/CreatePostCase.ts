@@ -1,4 +1,5 @@
 //Business rule
+import { prismaCl } from "../../../../../database/prismaClient";
 import { Post } from "../../entities/Post";
 import { IPostRepository } from "../../repositories/IPostRepository";
 import { ICreatePostRequestDTO } from "./CreatePostDTO"; //responsible for giving a pattern to the data that is coming from the request
@@ -24,6 +25,18 @@ export class CreatePostCase {
       );
     }
 
+    /*
+    const users = await prismaCl.users.create({
+      data: {
+        name: "Nailson",
+        email: "nailson.ivs@codens.com.br",
+        user: "nacodens",
+        password: "12345",
+      },
+    });
+
+    console.log(users);
+*/
     //create new object post with entities
     const post = new Post(data);
     //save post using our post repository

@@ -1,5 +1,5 @@
 import { json, Router } from "express";
-import { postRouter } from "../packages/blog/Post/src/routes";
+import { postRouter } from "../app/Post/src/routes";
 
 const router = Router();
 

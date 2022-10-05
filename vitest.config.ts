@@ -1,5 +1,7 @@
-import { defineConfig } from "vitest/config";
+import { defineConfig } from "vite";
 
 export default defineConfig({
-  test: {},
+  test: {
+    exclude: ["mongo", "prisma", "generated", "node_modules"],
+  },
 });

@@ -1,11 +1,10 @@
-//responsible for receiving requests external of the application
 import { Request, Response } from "express";
-import { CreatePostCase } from "./CreatePostCase";
-
-export class CreatePostController {
-  constructor(private createPostCase: CreatePostCase) {}
+import { UpdatePostCase } from "./UpdatePostCase";
+export class UpdatePostCaseController {
+  constructor(private updatePosCase: UpdatePostCase) {}
 
   async handle(request: Request, response: Response): Promise<Response> {
+    const { id } = request.params;
     const {
       title,
       detail,
@@ -19,7 +18,7 @@ export class CreatePostController {
     } = request.body;
 
     try {
-      await this.createPostCase.execute({
+      const updatePost = await this.updatePosCase.execute(id, {
         title,
         detail,
         description,
@@ -30,11 +29,12 @@ export class CreatePostController {
         metakeywords,
         metarobots,
       });
-      return response.status(201).json({ message: "sucess" });
-    } catch (err) {
+
+      return response.status(201).json(updatePost);
+    } catch (error) {
       return response
         .status(400)
-        .json({ message: err.message || "Unexpected error." });
+        .json({ message: error.message || "Unexpected error." });
     }
     return;
   }

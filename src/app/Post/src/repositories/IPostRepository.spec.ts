@@ -4,11 +4,15 @@ import { IPostRepository } from "./IPostRepository";
 
 describe("Test implementation interface IpostRepository", () => {
   class TesteImplementationIpostRepository implements IPostRepository {
+    findById(id: string): Promise<Post> {
+      return;
+    }
     private posts: Post[] = [];
 
     async findByTitle(title: string): Promise<Post> {
-      throw new Error("Method not implemented.");
+      return;
     }
+
     async all(): Promise<Post[]> {
       return this.posts;
     }

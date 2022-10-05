@@ -1,11 +1,23 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
 generator client {
   provider = "prisma-client-js"
+  output   = "../src/generated/client"
 }
 
 datasource db {
-  provider = "sqlite"
+  provider = "mongodb"
   url      = env("DATABASE_URL")
+}
+
+model Users{
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+  email String @unique 
+  name String
+  user String
+  password String
+}
+
+model Posts{
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+  title String @unique
+  detail String
 }

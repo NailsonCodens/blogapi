@@ -9,6 +9,11 @@ export class MongoPostRepository implements IPostRepository {
     return post;
   }
 
+  async findById(id: string): Promise<Post> {
+    const post = this.posts.find((post) => post.id === id);
+    return post;
+  }
+
   async all(): Promise<Post[]> {
     return this.posts;
   }
@@ -17,8 +22,11 @@ export class MongoPostRepository implements IPostRepository {
     this.posts.push(post);
   }
 
-  update(id: string, post: Post): Promise<Post> {
-    throw new Error("Method not implemented.");
+  async update(id: string, post: Post): Promise<Post> {
+    const postUpdate = this.posts.find((id) => {
+      console.log(id);
+    });
+    return postUpdate;
   }
 
   delete(id: string): Promise<void> {
