@@ -12,7 +12,7 @@ describe("Teste implementation ReadPostCase", () => {
   });
 
   test("Should be show all posts", async () => {
-    const readpost = await readPost.execute();
+    const readpost = await readPost.executeAllPost();
     expect(readpost).toEqual(expect.arrayContaining([]));
   });
 });
