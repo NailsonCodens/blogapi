@@ -4,8 +4,10 @@ export class ReadPostCase {
     this.postRepository = postRepository;
   }
 
-  async execute() {
+  async executeAllPost() {
     const allPosts = await this.postRepository.all();
     return allPosts;
   }
+
+  async executeFindPost() {}
 }
